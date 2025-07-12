@@ -1,0 +1,21 @@
+name: CCAny
+package: czyt.tech.app.ccany
+version: 1.0.8
+description: Proxy Claude Code to Any Open API
+homepage: https://github.com/ca-x/ccany
+author: czyt
+application:
+    subdomain: ccany
+    public_path:
+        - /
+    routes:
+        - /=http://ccany:8082
+    background_task: true
+
+services:
+    ccany:
+        image: registry.lazycat.cloud/czyt/czyt/ccany:fde0274c70adbec4
+        binds:
+            - /lzcapp/var/data:/app/data
+        setup_script: |
+            chown -R appuser:appgroup /app/data
