@@ -6,11 +6,10 @@ application:
     - location: /
       backend: http://ccany:8082
   background_task: true
-
 services:
   ccany:
     # upstream: czyt/ccany:1.1.2
-    image: czyt/ccany:1.1.2
+    image: registry.lazycat.cloud/czyt/czyt/ccany:3a9aacdb9dff2b00
     binds:
       - /lzcapp/var/data:/app/data
     setup_script: |
